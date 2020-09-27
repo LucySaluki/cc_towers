@@ -2,14 +2,11 @@ import java.util.ArrayList;
 
 public abstract class Room {
     private int capacity;
-    private ArrayList<Guest> guests;
+    ArrayList<Guest> guests;
 
     public Room(int capacity){
         this.capacity=capacity;
-    }
-
-    public Room() {
-
+        this.guests=new ArrayList<>();
     }
 
     public int getCapacity() {
@@ -24,5 +21,23 @@ public abstract class Room {
         return guests;
     }
 
+    public void addGuest(Guest guest){
+        this.guests.add(guest);
+    }
 
+    public int guestCount(){
+        return this.guests.size();
+    }
+
+    public void removeGuests(){
+        if (this.guestCount()>=1){
+            this.guests.clear();
+        }
+    }
+
+    public void removeSpecificGuest(Guest guest){
+        if (this.guestCount()>=1){
+            this.guests.remove(guest);
+        }
+    }
 }
