@@ -7,14 +7,16 @@ public class ConferenceRoomTest {
     private ConferenceRoom conferenceRoom;
     private Guest guest1;
     private Guest guest2;
+    private Guest guest3;
 
     @Before
     public void before() {
-        guest1 = new Guest("Sonny");
-        guest2 = new Guest("Lucy");
-        conferenceRoom = new ConferenceRoom("The Winter Room",12);
+        guest1 = new Guest("Freddie");
+        guest2 = new Guest("Ian");
+        conferenceRoom = new ConferenceRoom("The Winter Room",2);
         conferenceRoom.addGuest(guest1);
         conferenceRoom.addGuest(guest2);
+        guest3 = new Guest ("Annie");
     }
     @Test
     public void hasName(){
@@ -23,7 +25,7 @@ public class ConferenceRoomTest {
 
     @Test
     public void hasCapacity(){
-        assertEquals(12, conferenceRoom.getCapacity());
+        assertEquals(2, conferenceRoom.getCapacity());
     }
 
     @Test
@@ -40,6 +42,12 @@ public class ConferenceRoomTest {
     @Test
     public void canRemoveSpecificGuestFromConferenceRoom(){
         conferenceRoom.removeSpecificGuest(guest1);
-        assertEquals("Lucy", conferenceRoom.guests.get(0).getName());
+        assertEquals("Ian", conferenceRoom.getGuests().get(0).getName());
+    }
+
+    @Test
+    public void cannotExceedCapacity(){
+        conferenceRoom.addGuest(guest3);
+        assertEquals(2, conferenceRoom.guestCount());
     }
 }

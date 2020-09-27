@@ -8,11 +8,11 @@ public class GuestTest {
 
     @Before
     public void before(){
-        guest=new Guest("Sonny");
+        guest=new Guest("Joe");
     }
     @Test
     public void guestHasName(){
-        assertEquals("Sonny",guest.getName());
+        assertEquals("Joe",guest.getName());
     }
     @Test
     public void canChangeGuestName(){
