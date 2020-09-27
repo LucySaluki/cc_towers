@@ -13,6 +13,7 @@ public class HotelTest {
     private Guest guest3;
     private Guest guest4;
     private Guest guest5;
+    private DiningRoom diningRoom;
 
     @Before
     public void before(){
@@ -25,6 +26,7 @@ public class HotelTest {
         guest3 = new Guest("Lewis");
         guest4= new Guest("Ian");
         guest5 = new Guest("Freddie");
+        diningRoom = new DiningRoom("The Breakfast Room",10);
     }
     @Test
     public void hasName(){
@@ -44,6 +46,17 @@ public class HotelTest {
         assertEquals(1,hotel.conferenceRoomCount());
     }
 
+    @Test
+    public void canAddDiningRooms(){
+        hotel.addDiningRoom(diningRoom.getRoomName(),diningRoom);
+        assertEquals(1,hotel.diningRoomCount());
+    }
+
+    @Test
+    public void canGetCapacityOfDiningRoom(){
+        hotel.addDiningRoom(diningRoom.getRoomName(),diningRoom);
+        assertEquals(10, hotel.diningRooms.get("The Breakfast Room").capacity);
+    }
     @Test
     public void canAddGuestToBedroom(){
         hotel.addBedroom(bedroom1);
