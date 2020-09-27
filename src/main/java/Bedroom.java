@@ -19,4 +19,10 @@ public class Bedroom extends Room {
     public int getRoomCapacityFromEnum(){
         return this.roomType.getCapacity();
     }
+
+   public double getRateFromEnum(){
+        return this.roomType.getRate();
+    }
+
+
 }

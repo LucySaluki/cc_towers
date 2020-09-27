@@ -8,6 +8,7 @@ public class ConferenceRoomTest {
     private Guest guest1;
     private Guest guest2;
     private Guest guest3;
+    private Equipment equipment;
 
     @Before
     public void before() {
@@ -17,6 +18,7 @@ public class ConferenceRoomTest {
         conferenceRoom.addGuest(guest1);
         conferenceRoom.addGuest(guest2);
         guest3 = new Guest ("Annie");
+
     }
     @Test
     public void hasName(){
@@ -50,4 +52,6 @@ public class ConferenceRoomTest {
         conferenceRoom.addGuest(guest3);
         assertEquals(2, conferenceRoom.guestCount());
     }
+
+
 }

@@ -6,7 +6,7 @@ public abstract class Room {
 
     public Room(int capacity){
         this.capacity=capacity;
-        this.guests=new ArrayList<>();
+        this.guests= new ArrayList<>();
     }
 
     public int getCapacity() {
